@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────
-# ESTILOS CSS: TEMÁTICA SUPERMERCADO (BLANCO, AZUL Y ROJO)
+# ESTILOS CSS: TEMÁTICA SUPERMERCADO (TEXTOS BLANCOS SOBRE AZUL)
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
@@ -62,7 +62,7 @@ st.markdown("""
         font-weight: 700 !important;
     }
 
-    /* Botones corporativos en Azul y acentos Rojos */
+    /* Botones corporativos en Azul con letras BLANCAS */
     .stButton button {
         background-color: #2563eb !important;
         color: #ffffff !important;
@@ -73,12 +73,20 @@ st.markdown("""
         transition: all 0.2s ease;
     }
 
+    .stButton button span {
+        color: #ffffff !important;
+    }
+
     .stButton button:hover {
         background-color: #1d4ed8 !important;
         transform: translateY(-1px);
     }
 
-    /* Estilo para mensajes de éxito/estado */
+    /* Forzar texto blanco en componentes o contenedores con fondo azul */
+    .badge-azul, .stMarkdown div[style*="background-color: #e2e8f0"] {
+        color: #ffffff !important;
+    }
+
     p, span, label {
         color: #334155 !important;
     }
@@ -174,11 +182,11 @@ st.markdown("### 🎚️ Ajuste de Intensidad Lumínica (Dimmer)")
 
 values = st.slider('Selecciona el porcentaje de intensidad para las góndolas de frutas:', 0.0, 100.0, 50.0)
 
-# Visualizador dinámico del nivel seleccionado
+# Visualizador dinámico del nivel seleccionado con fondo azul y letras BLANCAS
 st.markdown(f"""
-<div style="background-color: #e2e8f0; border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 15px;">
-    <span style="font-weight: 600; color: #1e3a8a;">Nivel de brillo configurado: </span>
-    <span style="font-size: 1.2rem; font-weight: 700; color: #2563eb;">{values}%</span>
+<div style="background-color: #2563eb; border-radius: 8px; padding: 12px; text-align: center; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <span style="font-weight: 600; color: #ffffff;">Nivel de brillo configurado: </span>
+    <span style="font-size: 1.3rem; font-weight: 700; color: #ffffff;">{values}%</span>
 </div>
 """, unsafe_allow_html=True)
 
